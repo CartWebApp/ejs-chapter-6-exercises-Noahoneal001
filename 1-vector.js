@@ -6,6 +6,29 @@
 
 // Your code here.
 
+class Vec {
+    constructor(x,y) {
+        this.x = x;
+        this.y = y;
+    };
+
+    get length() {return Math.sqrt(this.x ** 2 + this.y ** 2)};
+
+    plus(newVec) {
+        this.x += newVec.x;
+        this.y += newVec.y;
+        return this;
+    };
+
+    minus(newVec) {
+        this.x -= newVec.x;
+        this.y -= newVec.y;
+        return this;
+    };
+
+
+
+};
 
 // Tests:
 console.log(new Vec(1, 2).plus(new Vec(2, 3)));
