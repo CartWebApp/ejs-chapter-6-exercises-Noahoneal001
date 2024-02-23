@@ -12,7 +12,6 @@ class Group {
   // Your code here.
   constructor(array) {
     this.array = array;
-    
   };
 
   static has(number) {
@@ -34,38 +33,50 @@ class Group {
     return this;
   };
 
-  // Symbol.iterator () {}
+  static [Symbol.iterator] () {
+
+    let i = 0;
+
+    return {
+      next: () => {
+        if (i < this.array.length) {
+          return {value: this.array[i++], done: false}
+        }
+        else {{return {done: true}}}
+      }
+    }
+  }
 
 };
 
-class GroupIterator {
+// class GroupIterator {
 
-  constructor(Group) {
-    this.Group = Group
-    this.Iterator = 0
-  }
+//   constructor(Group) {
+//     this.Group = Group
+//     this.Iterator = 0
+//   }
 
-  static next() {
+//   static next() {
 
-    console.log(this.Group)
+//     console.log(this.Group)
 
-    if(this.Iterator == this.Group.array.length) {return {done: true}}
+//     if(this.Iterator == this.Group.array.length) {return {done: true}}
 
-    let output = this.array.array[this.Iterator]
+//     let output = this.array.array[this.Iterator]
 
-    this.Iterator++
+//     this.Iterator++
 
-    return {value: 1, done: false}
+//     return {value: 1, done: false}
 
-  }
+//   }
 
-}
+// }
 
-Group.prototype[Symbol.iterator] = function () {return new GroupIterator(this);}
+// Group.prototype[Symbol.iterator] = function* () {yield new GroupIterator(this);}
 
-console.log(Group.prototype[Symbol.iterator])
+// console.log(Group.prototype[Symbol.iterator])
 
-console.log(Group.from([`a`,`b`,`c`]))
+// console.log(Group.from([`a`,`b`,`c`])[Symbol.iterator])
 
 // Tests:
 for (let value of Group.from(["a", "b", "c"])) {
