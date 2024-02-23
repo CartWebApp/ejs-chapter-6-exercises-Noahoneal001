@@ -49,35 +49,6 @@ class Group {
 
 };
 
-// class GroupIterator {
-
-//   constructor(Group) {
-//     this.Group = Group
-//     this.Iterator = 0
-//   }
-
-//   static next() {
-
-//     console.log(this.Group)
-
-//     if(this.Iterator == this.Group.array.length) {return {done: true}}
-
-//     let output = this.array.array[this.Iterator]
-
-//     this.Iterator++
-
-//     return {value: 1, done: false}
-
-//   }
-
-// }
-
-// Group.prototype[Symbol.iterator] = function* () {yield new GroupIterator(this);}
-
-// console.log(Group.prototype[Symbol.iterator])
-
-// console.log(Group.from([`a`,`b`,`c`])[Symbol.iterator])
-
 // Tests:
 for (let value of Group.from(["a", "b", "c"])) {
   console.log(value);
